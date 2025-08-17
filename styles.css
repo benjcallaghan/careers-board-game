@@ -35,20 +35,21 @@ li {
 }
 
 ::backdrop {
-    background-color: black;
-    opacity: 0.75;
+  background-color: black;
+  opacity: 0.75;
 }
 
-#setup {
+#setup,
+#goals {
   input[type="range"] {
-    width: 200px;
+    width: 20rem;
     margin: 0;
   }
 
   datalist {
     display: flex;
     justify-content: space-between;
-    width: 200px;
+    width: 20rem;
   }
 
   option {
@@ -402,11 +403,13 @@ li {
 }
 
 .happiness {
+  accent-color: red;
   color: red;
   font-weight: bold;
 }
 
 .fame {
+  accent-color: rgb(194, 137, 51);
   color: rgb(194, 137, 51);
   font-weight: bold;
   -webkit-text-stroke: thin black;
@@ -414,6 +417,7 @@ li {
 
 .fortune,
 .salary {
+  accent-color: green;
   color: green;
   font-weight: bold;
 }

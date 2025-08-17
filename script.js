@@ -53,6 +53,37 @@ class Player {
         return token;
     }
 
+    /**
+     * @param {HTMLDialogElement} goalsDialog 
+     * @returns {Promise}
+     */
+    promptForGoals(goalsDialog) {
+        return new Promise((resolve, reject) => {
+            /** @type {HTMLInputElement} */
+            const happinessInput = goalsDialog.querySelector('input[name="happinessGoal"]');
+            /** @type {HTMLInputElement} */
+            const fameInput = goalsDialog.querySelector('input[name="fameGoal"]');
+            /** @type {HTMLInputElement} */
+            const fortuneInput = goalsDialog.querySelector('input[name="fortuneGoal"]');
+
+            happinessInput.valueAsNumber = 20;
+            fameInput.valueAsNumber = 20;
+            fortuneInput.valueAsNumber = 200000;
+
+            const header = goalsDialog.querySelector('h3');
+            header.innerText = this.#name;
+
+            goalsDialog.showModal();
+            goalsDialog.addEventListener('close', e => {
+                this.#goal.happiness = happinessInput.valueAsNumber;
+                this.#goal.fame = fameInput.valueAsNumber;
+                this.#goal.fortune = fortuneInput.valueAsNumber;
+
+                resolve();
+            }, { once: true });
+        });
+    }
+
     updateScorecard() {
         const summary = this.#scorecard.querySelector('summary');
         summary.innerText = this.#name;
@@ -131,7 +162,7 @@ class Player {
 /** @type {HTMLDialogElement} */
 const setupDialog = document.getElementById('setup');
 setupDialog.showModal();
-setupDialog.addEventListener('close', e => {
+setupDialog.addEventListener('close', async e => {
     /** @type {HTMLInputElement} */
     const playerCountInput = document.getElementsByName('playerCount')[0];
 
@@ -140,10 +171,14 @@ setupDialog.addEventListener('close', e => {
     const paydaySquare = document.getElementById('payday');
     const asideSection = document.getElementsByTagName('aside')[0];
 
+    /** @type {HTMLDialogElement} */
+    const goalsDialog = document.getElementById('goals');
+
     /** @type {Player[]} */
     const players = [];
     for (let i = 1; i <= playerCountInput.valueAsNumber; i++) {
         const player = new Player(paydaySquare, scorecardTemplate, asideSection, i);
+        await player.promptForGoals(goalsDialog);
         player.updateScorecard();
         players.push(player);
     }
@@ -151,7 +186,7 @@ setupDialog.addEventListener('close', e => {
     // setInterval(() => {
     //   players[0].moveOnce();
     // }, 1000);
-});
+}, { once: true });
 
 
 
