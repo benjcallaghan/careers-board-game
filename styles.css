@@ -55,6 +55,10 @@ li {
   option {
     padding: 0;
   }
+
+  span.error {
+    color: red;
+  }
 }
 
 .scorecard {

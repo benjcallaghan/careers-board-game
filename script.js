@@ -59,7 +59,7 @@ class Player {
     promptForGoals() {
         return new Promise((resolve, reject) => {
             goalsForm.reset();
-            
+
             goalsDialog.querySelector('h3').innerText = this.#name;
             goalsDialog.showModal();
             goalsDialog.addEventListener('close', e => {
@@ -159,11 +159,23 @@ const fortuneInput = goalsForm.elements.namedItem('fortuneGoal');
 /** @type {HTMLOutputElement} */
 const totalOutput = goalsForm.elements.namedItem('totalGoal');
 
+goalsForm.addEventListener('reset', e => {
+    totalOutput.nextElementSibling.textContent = '';
+})
 goalsForm.addEventListener('input', e => {
     totalOutput.value = happinessInput.valueAsNumber + fameInput.valueAsNumber + Math.floor(fortuneInput.valueAsNumber / 10000);
+    if (totalOutput.value === '60') {
+        totalOutput.setCustomValidity('');
+    } else {
+        totalOutput.setCustomValidity('The total points must add up to 60.');
+        totalOutput.reportValidity();
+    }
 });
 goalsForm.addEventListener('submit', e => {
-
+    if (!totalOutput.validity.valid) {
+        e.preventDefault();
+        totalOutput.nextElementSibling.textContent = 'The total points must add up to 60.';
+    }
 });
 
 /** @type {HTMLDialogElement} */
