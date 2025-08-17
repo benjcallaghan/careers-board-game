@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Careers - The Board Game</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main id="board">
+      <h1>Careers</h1>
+      <ol>
+        <li id="payday" class="corner top left">
+          <span><b>Collect Salary</b> as you pass...</span>
+          <h2>Payday</h2>
+          <span>Collect <b>DOUBLE</b> if you land here</span>
+          <span>▶ Start Here ▶</span>
+          <!-- <div class="player" id="player1"></div>
+          <div class="player" id="player2"></div>
+          <div class="player" id="player3"></div>
+          <div class="player" id="player4"></div>
+          <div class="player" id="player5"></div>
+          <div class="player" id="player6"></div> -->
+        </li>
+        <li id="mars-end" class="opportunity top">
+          <h2>Opportunity Knocks</h2>
+        </li>
+        <li id="taxes" class="expense top">
+          <h2>Taxes Due</h2>
+          If your salary is
+          <ul>
+            <li><b>$30,000</b> or less...pay 10%</li>
+            <li><b>$30,001 - $99,999</b>...pay 50%</li>
+            <li><b>$100,000</b> and up...pay 90%</li>
+          </ul>
+          of one year's salary.
+        </li>
+        <li class="opportunity top"><h2>Opportunity Knocks</h2></li>
+        <li id="ecology" class="career top">
+          <h2>Ecology</h2>
+          Must <b>donate $10,000</b> for rain forest preservation or have:
+          Experience in Ecology.
+          <ol>
+            <li>
+              Plant organic vegetable garden.
+              <data value="2" class="happiness">2♥s</data>
+            </li>
+            <li>Organize clean-up campaign. Take <b>1 Experience Card</b></li>
+            <li>
+              Watch sunrise over river.
+              <data value="2" class="happiness">2♥s</data>
+            </li>
+            <li>
+              Invent toxic waste neutralizer. Earn royalties of
+              <data value="10000" class="fortune">$10,000</data> <b>x</b> roll
+              of 1 die.
+            </li>
+            <li>
+              Promote rain forest benefit concert.
+              <data value="2" class="fame">2★s</data> +
+              <data value="4" class="happiness">4♥s</data>
+            </li>
+            <li>
+              Rescue nearly-extinct bird.
+              <data value="6" class="happiness">6♥s</data>
+            </li>
+            <li>
+              Win electric car design contest. <b>Awarded</b>
+              <data value="50000" class="fortune">$50,000</data>.
+            </li>
+            <li>
+              Go whale watching. <data value="2" class="happiness">2♥s</data>
+            </li>
+            <li>Caught dumping oil. <b>Fine:</b> 1/2 your cash on hand.</li>
+            <a href="#ecology-end" class="right-arrow up-arrow"
+              >Collect Experience</a
+            >
+          </ol>
+        </li>
+        <li id="ecology-end" class="opportunity top">
+          <h2>Opportunity Knocks</h2>
+        </li>
+        <li id="auto" class="luxury top">
+          <h2>Auto Show</h2>
+          May spend up to 1 year's salary for a new car. SCORE
+          <data value="1" class="happiness">1♥</data> for each
+          <b>$10,000</b> spent. Lose
+          <data value="-1" class="happiness">1♥</data> for "just looking".
+          (Players with no <data value="0" class="happiness">♥'s</data> may
+          "look free".)
+        </li>
+        <li id="college" class="career top">
+          <h2>College</h2>
+          Must have <b>$5,000</b> for tuition. May earn a degree in Law,
+          Medicine, Science, or Engineering, while they last. Later graduates
+          receive a plain college degree. Graduates who land here must roll
+          again.
+          <ol>
+            <li>Fall in love <data value="4" class="happiness">4♥s</data></li>
+            <li>Fail a course. <b>Lose</b> next turn.</li>
+            <li>
+              Elected to Honor Society
+              <data value="2" class="happiness">2♥s</data>
+            </li>
+            <li>
+              Elected head of dorm <data value="2" class="happiness">2♥s</data>
+            </li>
+            <li>
+              President is distant relative. Draw <b>2 Opportunity Cards.</b>
+            </li>
+            <li>
+              All-American athlete. Score
+              <data value="6" class="fame">6★s</data>
+            </li>
+            <li>Graduate with top honors. Draw <b>2 Opportunity Cards</b>.</li>
+            <a href="#food" class="right-arrow down-arrow"
+              >Increase Salary by $20,000</a
+            >
+          </ol>
+        </li>
+        <li id="hospital" class="corner top right">
+          <h2>Hospital</h2>
+          Roll <b>5</b> or less to be released. May use that roll or an
+          <b>Experience Card</b> to move. <b>OR</b> you may pay Doctor (if no
+          doctor, Paymaster) <b>1/2</b> your salary & either
+          <b>roll the dice</b> or use an <b>Experience Card</b> to move. May
+          <b>NOT</b> use Opportunity Cards.
+        </li>
+        <li class="opportunity right"><h2>Opportunity Knocks</h2></li>
+        <li id="food" class="expense right">
+          <h2>Food</h2>
+          Pay 1/4 of your cash-on-hand for this year's groceries
+        </li>
+        <li id="business" class="career right">
+          <h2>Big Business</h2>
+          Must spend <b>$5,000</b> for special business course or have: some
+          College degree, or Business experience.
+          <ol>
+            <li>Training program. Draw <b>1 Experience Card</b>.</li>
+            <li>Lunch with your boss. Draw <b>1 Opportunity Card</b>.</li>
+            <li>
+              Boss likes you. Salary up
+              <data value="10000" class="salary">$10,000</data>.
+            </li>
+            <li>Argue with Boss. <b>Lose</b> next turn.</li>
+            <li>
+              Save company big bucks. Collect
+              <data value="20000" class="fortune">$20,000</data> bonus.
+            </li>
+            <li>
+              Promotion to Vice President. Salary up
+              <data value="20000" class="salary">$20,000</data>.
+            </li>
+            <li>Swing big deal. Draw <b>1 Experience Card</b>.</li>
+            <li>
+              Posh new office. <data value="4" class="happiness">4♥s</data>
+            </li>
+            <li>Make a <b>BIG</b> mistake. Go to <b>Park Bench</b>.</li>
+            <li>Business slump. Salary cut by 1/2.</li>
+            <li>
+              Elected to Board of Directors. Salary up
+              <data value="30000" class="salary">$30,000</data>.
+            </li>
+            <a href="#business-end" class="right-arrow down-arrow"
+              >Collect Experience</a
+            >
+          </ol>
+        </li>
+        <li id="business-end" class="opportunity right">
+          <h2>Opportunity Knocks</h2>
+        </li>
+        <li id="art" class="luxury right">
+          <h2>Art Gallery</h2>
+          May buy 1 or 2 paintings for <b>$30,000</b> each. For each painting,
+          roll 1 die & SCORE <data value="1" class="fame">1★</data> <b>x</b> the
+          number rolled.
+        </li>
+        <li id="sailing" class="career right left-arrow">
+          <h2>Sailing</h2>
+          May join the crew of a Round-the-World sailing yacht if you spend
+          <b>$1,000</b> for your own personal safety gear; OR have Sailing
+          Experience.
+          <ol>
+            <li>Sea-sick 1st day out. Go to <b>HOSPITAL</b>.</li>
+            <li>
+              See sights of Buenos Aires.
+              <data value="2" class="happiness">2♥s</data>
+            </li>
+            <li>Meet famous explorer. Draw <b>2 Opportunity Cards</b>.</li>
+            <li>Bad storm. Draw <b>1 Experience Card</b>.</li>
+            <li>
+              Find sunken galleon. Collect
+              <data value="10000" class="fortune">$10,000</data> X roll of 1
+              die.
+            </li>
+            <li>
+              Land at Tahiti. <data value="4" class="happiness">4♥s</data>
+            </li>
+            <li>
+              Swim at Great Barrier Reef.
+              <data value="6" class="happiness">6♥s</data>
+            </li>
+            <li>Miss dawn departure from Cape Town. <b>Lose next turn.</b></li>
+            <li>
+              <b>TERRIFIC</b> homecoming.
+              <data value="8" class="happiness">8♥s</data>
+            </li>
+            <a href="#sailing-end" class="left-arrow down-arrow"
+              >Collect Experience</a
+            >
+          </ol>
+        </li>
+        <li class="opportunity right"><h2>Opportunity Knocks</h2></li>
+        <li id="park-bench" class="corner bottom right">
+          <h2>Park Bench</h2>
+          You are <b>unemployed</b>. May roll <b>7</b>, <b>11</b>, or
+          <b>Doubles</b> and use that roll or an <b>Experience Card</b> to move.
+          <b>OR</b> you may spend <b>1/2</b> your cash on new clothes & then
+          either roll the dice or use an <b>Experience Card</b> to move. May
+          <b>NOT</b> use Opportunity Cards.
+        </li>
+        <li id="sailing-end" class="opportunity bottom">
+          <h2>Opportunity Knocks</h2>
+        </li>
+        <li id="rent" class="expense bottom">
+          <h2>Rent</h2>
+          Pay 1/2 your annual salary for this year's rent.
+        </li>
+        <li id="politics" class="career bottom left-arrow">
+          <h2>Politics</h2>
+          Must <b>CONTRIBUTE $30,000</b> to own campaign fund OR have: Law
+          degree or Political experience.
+          <ol>
+            <li>Lose in primaries. Go to <b>Park Bench</b>.</li>
+            <li>Lunch with the President. Draw <b>2 Opportunity Cards</b>.</li>
+            <li>Win TV debate. <data value="4" class="fame">4★s</data></li>
+            <li>
+              Assigned own limosine.
+              <data value="2" class="happiness">2♥s</data>
+            </li>
+            <li>Smile, wave & kiss babies. Draw <b>2 Experience Cards</b>.</li>
+            <li>
+              Appointed Supreme Court. <data value="6" class="fame">6★s</data>.
+            </li>
+            <li>
+              Get health care legislation passed.
+              <data value="2" class="fame">2★s</data> +
+              <data value="4" class="happiness">4♥s</data>
+            </li>
+            <li>Win by a landslide. <data value="8" class="fame">8★s</data></li>
+            <li>
+              Sell memoirs. Collect
+              <data value="50000" class="fortune">$50,000</data> and
+              <data value="4" class="fame">4★s</data>
+            </li>
+            <li>Dark secret revealed. <b>Lose</b> 1/2 your Fame.</li>
+            <li>
+              Win Nobel Peace Prize. <data value="4" class="fame">12★s</data>
+            </li>
+            <a href="#politics-end" class="left-arrow down-arrow"
+              >Collect Experience</a
+            >
+          </ol>
+        </li>
+        <li id="politics-end" class="opportunity bottom">
+          <h2>Opportunity Knocks</h2>
+        </li>
+        <li id="mall" class="expense bottom">
+          <h2>Shopping Mall</h2>
+          Spend 10% of your cash <b>x</b> the roll of 1 die as this year's
+          shopping spree
+        </li>
+        <li id="entertainment" class="career bottom left-arrow">
+          <h2>Entertainment</h2>
+          Must <b>SPEND $10,000</b> up front for good agent OR have Experience
+          in Entertainment.
+          <ol>
+            <li>
+              Get part in TV commercial. <data value="2" class="fame">2★s</data>
+            </li>
+            <li>Perform stand-up comedy. Draw <b>1 Experience Card</b>.</li>
+            <li>Agent likes you. Draw <b>2 Opportunity Cards</b>.</li>
+            <li>
+              Best Rock Video...yours! <data value="6" class="fame">6★s</data> +
+              <data value="2" class="happiness">2♥s</data>
+            </li>
+            <li>
+              Your ratings are up. Salary up
+              <data value="10000" class="salary">$10,000</data>.
+            </li>
+            <li>Film is a flop. <b>CUT</b> salary in half.</li>
+            <li>
+              Unauthorized bio is a hit.
+              <data value="10" class="fame">10★s</data> but <b>lose</b> all your
+              <data value="all" class="happiness">♥s</data>
+            </li>
+            <li>
+              Star in sequel. Get
+              <data value="10000" class="fortune">$10,000</data> X roll of one
+              die.
+            </li>
+            <li>Win Oscar. <data value="12" class="fame">12★s</data></li>
+            <a href="#entertainment-end" class="left-arrow up-arrow"
+              >Collect Experience</a
+            >
+          </ol>
+        </li>
+        <li class="opportunity bottom">
+          <h2>Opportunity Knocks</h2>
+        </li>
+        <li id="vacation" class="corner bottom left">
+          <h2>Tropical Vacation</h2>
+          <b>Score</b> <data value="4" class="happiness">4♥s</data> if you land
+          here. <b>Score</b> <data value="2" class="happiness">2♥s</data> each
+          turn you stay. May stay on rolls of <b>7</b> or less. May leave on any
+          roll and use that roll or an <b>Experience</b> or
+          <b>Opportunity Card</b> to leave.
+        </li>
+        <li id="entertainment-end" class="opportunity left">
+          <h2>Opportunity Knocks</h2>
+        </li>
+        <li id="stock" class="luxury left">
+          <h2>Stock Market</h2>
+          May buy blocks of stock for <b>$30,000</b> each. No limit. For each
+          block bought, roll 1 die & sell out for <b>$10,000 x</b> the number
+          rolled.
+        </li>
+        <li id="computer" class="career left">
+          <h2>Computer Programming</h2>
+          Must <b>invest $40,000</b> in start-up compnay OR have: Engineering
+          degree or Experience in Computer Programming.
+          <ol>
+            <li>
+              Create game with great graphics.
+              <data value="2" class="happiness">2♥s</data>
+            </li>
+            <li>Speedy algorithm. <b>Roll again.</b></li>
+            <li>
+              Crash mainframe. Pay
+              <data value="20000" class="fortune">$20,000</data> to rebuild
+              files or go to <b>Park Bench</b>.
+            </li>
+            <li>
+              Your debugging system works!
+              <data value="2" class="happiness">2♥s</data>
+            </li>
+            <li>Start new Web site. Draw <b>2 Experience Cards</b>.</li>
+            <li>
+              Discover beautiful algorithm.
+              <data value="4" class="happiness">4♥s</data>
+            </li>
+            <li>Severe case of workaholism. Go to <b>HOSPITAL</b>.</li>
+            <li>
+              Do animation for blockbuster film. Collect
+              <data value="100000" class="fortune">$100,000</data>.
+            </li>
+            <li>
+              Lots of e-mail from admirers.
+              <data value="2" class="fame">2★s</data> +
+              <data value="4" class="happiness">4♥s</data>
+            </li>
+            <li>
+              Marry on-line sweetheart.
+              <data value="6" class="happiness">6♥s</data>
+            </li>
+            <li>
+              Your company's stock goes through the roof.
+              <data value="200000" class="fortune">$200,000</data> <b>bonus</b>.
+            </li>
+            <a href="#computer-end" class="left-arrow up-arrow"
+              >Collect Experience</a
+            >
+          </ol>
+        </li>
+        <li id="computer-end" class="opportunity left">
+          <h2>Opportunity Knocks</h2>
+        </li>
+        <li id="yacht" class="luxury left">
+          <h2>Yachts</h2>
+          You may buy just one yacht. Pay
+          <ul>
+            <li>
+              <b>$20,000</b> for a 20-footer & score
+              <data value="4" class="happiness">4♥s</data>
+            </li>
+            <li>
+              <b>$80,000</b> for a 35-footer & score
+              <data value="8" class="happiness">8♥s</data>
+            </li>
+            <li>
+              <b>$160,000</b> for a 50-footer & score
+              <data value="12" class="happiness">12♥s</data>
+            </li>
+          </ul>
+        </li>
+        <li id="mars" class="career left">
+          <h2>Expedition to Mars!</h2>
+          Must <b>contribute $50,000</b> for research OR have: Science degree,
+          or have completed previous Mars Expedition.
+          <ol>
+            <li>
+              All systems go. <data value="2" class="happiness">2♥s</data>
+            </li>
+            <li>
+              Successful blast-off! <data value="6" class="fame">6★s</data>
+            </li>
+            <li>Lose your nerve and <b>ALL</b> of your <b>FAME</b>.</li>
+            <li>
+              Wallet falls into a Black Hole. Lose <b>ALL</b> your <b>CASH</b>.
+            </li>
+            <li>
+              Rescue spacemate. <data value="2" class="fame">2★s</data> +
+              <data value="4" class="happiness">4♥s</data>
+            </li>
+            <li>
+              Promotion for bravery. Salary up
+              <data value="20000" class="salary">$20,000</data>.
+            </li>
+            <li>Fire on board. Draw <b>2 Experience Cards</b>.</li>
+            <li>
+              First human on Mars...you!
+              <data value="16" class="fame">16★s</data>
+            </li>
+            <li>
+              Get married on Mars.
+              <data value="10" class="happiness">10♥s</data>
+            </li>
+            <li>
+              Discover titanium deposit.
+              <data value="100000" class="fortune">$100,000</data> bonus.
+            </li>
+            <li>
+              Jump over crater: <data value="10" class="fame">10★s</data>...and
+              go to <b>Hospital</b>.
+            </li>
+            <li>
+              Successful Earth landing!
+              <data value="6" class="fame">6★s</data> +
+              <data value="4" class="happiness">4♥s</data>
+            </li>
+            <li>
+              Sell Martian artifacts to museum. Collect
+              <data value="50000" class="fortune">$50,000</data>.
+            </li>
+            <a href="#mars-end" class="right-arrow up-arrow"
+              >Collect Experience</a
+            >
+          </ol>
+        </li>
+        <li id="charity" class="luxury left">
+          <h2>Charity</h2>
+          You may contribute publicly to Building Shelters for the Homeless and
+          earn fame:
+          <table>
+            <tr>
+              <th>Donate:</th>
+              <th>Score:</th>
+            </tr>
+            <tr>
+              <td>$40,000</td>
+              <td class="fame">4★s</td>
+            </tr>
+            <tr>
+              <td>$80,000</td>
+              <td class="fame">10★s</td>
+            </tr>
+            <tr>
+              <td>$120,000</td>
+              <td class="fame">16★s</td>
+            </tr>
+          </table>
+        </li>
+        <a href="#payday"></a>
+      </ol>
+    </main>
+    <aside>
+      <template id="scorecard">
+        <details class="scorecard" open>
+          <summary>Player 1</summary>
+          Goal:
+          <data value="" class="happiness">?♥s</data>
+          <data value="" class="fame">?★s</data>
+          <data value="" class="fortune">$?</data>
+          <br />
+          Current:
+          <data value="0" class="happiness">0♥s</data>
+          <data value="0" class="fame">0★s</data>
+          <data value="10000" class="fortune">$10,000</data>
+          <br />
+          Salary: <data value="10000" class="salary">$10,000</data>
+          <br />
+          Degree: <data value="None" class="degree">None</data>
+          <ul>
+            <li>Ecology: <data class="experience" value="0">0</data></li>
+            <li>Big Business: <data class="experience" value="0">0</data></li>
+            <li>Sailing: <data class="experience" value="0">0</data></li>
+            <li>Politics: <data class="experience" value="0">0</data></li>
+            <li>Entertainment: <data class="experience" value="0">0</data></li>
+            <li>
+              Computer Programming: <data class="experience" value="0">0</data>
+            </li>
+            <li>
+              Expedition to Mars: <data class="experience" value="0">0</data>
+            </li>
+          </ul>
+        </details>
+      </template>
+    </aside>
+    <script type="module" src="script.js"></script>
+  </body>
+</html>
