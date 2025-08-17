@@ -7,6 +7,21 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
+    <dialog id="setup" closedby="none">
+        <form method="dialog">
+            <label for="playerCount">How many players?</label>
+            <br/>
+            <input autofocus type="range" name="playerCount" min="2" max="6" step="1" list="playerMarkers" value="4" />
+            <datalist id="playerMarkers">
+                <option value="2" label="2"></option>
+                <option value="3" label="3"></option>
+                <option value="4" label="4"></option>
+                <option value="5" label="5"></option>
+                <option value="6" label="6"></option>
+            </datalist>
+            <input type="submit" value="Start Game"/>
+        </form>
+    </dialog>
     <main id="board">
       <h1>Careers</h1>
       <ol>

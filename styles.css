@@ -34,6 +34,28 @@ li {
   }
 }
 
+::backdrop {
+    background-color: black;
+    opacity: 0.75;
+}
+
+#setup {
+  input[type="range"] {
+    width: 200px;
+    margin: 0;
+  }
+
+  datalist {
+    display: flex;
+    justify-content: space-between;
+    width: 200px;
+  }
+
+  option {
+    padding: 0;
+  }
+}
+
 .scorecard {
   border: 1px solid black;
   padding: 1rem;
@@ -399,10 +421,10 @@ li {
 #ecology {
   ol {
     grid-template-areas:
-      's1 . s9'
-      's2 . s8'
-      's3 . s7'
-      's4 s5 s6';
+      "s1 . s9"
+      "s2 . s8"
+      "s3 . s7"
+      "s4 s5 s6";
     top: 100%;
     left: 50%;
     width: calc(var(--cell-length) * 3);
@@ -417,10 +439,10 @@ li {
 #college {
   ol {
     grid-template-areas:
-      '. s1 .'
-      's3 s2 .'
-      's4 . .'
-      's5 s6 s7';
+      ". s1 ."
+      "s3 s2 ."
+      "s4 . ."
+      "s5 s6 s7";
     top: 100%;
     left: -50%;
     width: calc(var(--cell-length) * 3);
@@ -435,10 +457,10 @@ li {
 #business {
   ol {
     grid-template-areas:
-      's4 s3 s2 s1'
-      's5 . . .'
-      's6 . s10 s11'
-      's7 s8 s9 .';
+      "s4 s3 s2 s1"
+      "s5 . . ."
+      "s6 . s10 s11"
+      "s7 s8 s9 .";
     top: 50%;
     right: 100%;
     width: calc(var(--cell-length) * 4);
@@ -453,10 +475,10 @@ li {
 #sailing {
   ol {
     grid-template-areas:
-      's4 s3 s2 s1'
-      's5 . . .'
-      's6 s7 s8 .'
-      '. . s9 .';
+      "s4 s3 s2 s1"
+      "s5 . . ."
+      "s6 s7 s8 ."
+      ". . s9 .";
     top: 0;
     right: 100%;
     width: calc(var(--cell-length) * 4);
@@ -471,10 +493,10 @@ li {
 #politics {
   ol {
     grid-template-areas:
-      's7 s6 s5 s4'
-      's8 . . s3'
-      's9 s10 . s2'
-      '. s11 . s1';
+      "s7 s6 s5 s4"
+      "s8 . . s3"
+      "s9 s10 . s2"
+      ". s11 . s1";
     bottom: 100%;
     right: 50%;
     width: calc(var(--cell-length) * 4);
@@ -489,10 +511,10 @@ li {
 #entertainment {
   ol {
     grid-template-areas:
-      '. s6 s5 s4'
-      '. s7 . s3'
-      's9 s8 . s2'
-      '. . . s1';
+      ". s6 s5 s4"
+      ". s7 . s3"
+      "s9 s8 . s2"
+      ". . . s1";
     bottom: 100%;
     right: 0;
     width: calc(var(--cell-length) * 4);
@@ -507,10 +529,10 @@ li {
 #computer {
   ol {
     grid-template-areas:
-      '. s9 s8 s7'
-      's11 s10 . s6'
-      '. . . s5'
-      's1 s2 s3 s4';
+      ". s9 s8 s7"
+      "s11 s10 . s6"
+      ". . . s5"
+      "s1 s2 s3 s4";
     bottom: 50%;
     left: 100%;
     width: calc(var(--cell-length) * 4);
@@ -525,10 +547,10 @@ li {
 #mars {
   ol {
     grid-template-areas:
-      '. s13 . . . .'
-      '. s12 s11 s10 s9 s8'
-      '. . . . . s7'
-      's1 s2 s3 s4 s5 s6';
+      ". s13 . . . ."
+      ". s12 s11 s10 s9 s8"
+      ". . . . . s7"
+      "s1 s2 s3 s4 s5 s6";
     bottom: 0;
     left: 100%;
     width: calc(var(--cell-length) * 6);
