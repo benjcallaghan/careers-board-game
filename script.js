@@ -115,6 +115,7 @@ class Player {
     }
 
     nextSpace.appendChild(this.#token);
+    console.log(`Player ${this.#id} landed on #${nextSpace.id}.${nextSpace.className}.`)
   }
 
   /** @returns {boolean} */
