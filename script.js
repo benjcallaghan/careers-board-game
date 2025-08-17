@@ -66,9 +66,8 @@ class Player {
             /** @type {HTMLInputElement} */
             const fortuneInput = goalsDialog.querySelector('input[name="fortuneGoal"]');
 
-            happinessInput.valueAsNumber = 20;
-            fameInput.valueAsNumber = 20;
-            fortuneInput.valueAsNumber = 200000;
+            const goalsForm = goalsDialog.querySelector('form');
+            goalsForm.reset();
 
             const header = goalsDialog.querySelector('h3');
             header.innerText = this.#name;
@@ -173,6 +172,11 @@ setupDialog.addEventListener('close', async e => {
 
     /** @type {HTMLDialogElement} */
     const goalsDialog = document.getElementById('goals');
+    /** @type {HTMLFormElement} */
+    const goalsForm = goalsDialog.querySelector('form');
+    goalsForm.addEventListener('submit', e => {
+        
+    });
 
     /** @type {Player[]} */
     const players = [];
