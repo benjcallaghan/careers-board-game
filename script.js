@@ -54,24 +54,13 @@ class Player {
     }
 
     /**
-     * @param {HTMLDialogElement} goalsDialog 
      * @returns {Promise}
      */
-    promptForGoals(goalsDialog) {
+    promptForGoals() {
         return new Promise((resolve, reject) => {
-            /** @type {HTMLInputElement} */
-            const happinessInput = goalsDialog.querySelector('input[name="happinessGoal"]');
-            /** @type {HTMLInputElement} */
-            const fameInput = goalsDialog.querySelector('input[name="fameGoal"]');
-            /** @type {HTMLInputElement} */
-            const fortuneInput = goalsDialog.querySelector('input[name="fortuneGoal"]');
-
-            const goalsForm = goalsDialog.querySelector('form');
             goalsForm.reset();
-
-            const header = goalsDialog.querySelector('h3');
-            header.innerText = this.#name;
-
+            
+            goalsDialog.querySelector('h3').innerText = this.#name;
             goalsDialog.showModal();
             goalsDialog.addEventListener('close', e => {
                 this.#goal.happiness = happinessInput.valueAsNumber;
@@ -87,11 +76,11 @@ class Player {
         const summary = this.#scorecard.querySelector('summary');
         summary.innerText = this.#name;
 
-        /** @type {HTMLDataElement[]} */
+        /** @type {NodeListOf<HTMLDataElement>} */
         const happiness = this.#scorecard.querySelectorAll('data.happiness');
-        /** @type {HTMLDataElement[]} */
+        /** @type {NodeListOf<HTMLDataElement>} */
         const fame = this.#scorecard.querySelectorAll('data.fame');
-        /** @type {HTMLDataElement[]} */
+        /** @type {NodeListOf<HTMLDataElement>} */
         const fortune = this.#scorecard.querySelectorAll('data.fortune');
 
         happiness[0].value = this.#goal.happiness;
@@ -117,7 +106,7 @@ class Player {
         const degree = this.#scorecard.querySelector('data.degree');
         degree.value = degree.innerText = this.#degree;
 
-        /** @type {HTMLDataElement[]} */
+        /** @type {NodeListOf<HTMLDataElement>} */
         const experience = this.#scorecard.querySelectorAll('data.experience');
         experience[0].value = experience[0].innerText = this.#experience.ecology;
         experience[1].value = experience[1].innerText = this.#experience.business;
@@ -159,6 +148,25 @@ class Player {
 }
 
 /** @type {HTMLDialogElement} */
+const goalsDialog = document.getElementById('goals');
+const goalsForm = goalsDialog.querySelector('form');
+/** @type {HTMLInputElement} */
+const happinessInput = goalsForm.elements.namedItem('happinessGoal');
+/** @type {HTMLInputElement} */
+const fameInput = goalsForm.elements.namedItem('fameGoal');
+/** @type {HTMLInputElement} */
+const fortuneInput = goalsForm.elements.namedItem('fortuneGoal');
+/** @type {HTMLOutputElement} */
+const totalOutput = goalsForm.elements.namedItem('totalGoal');
+
+goalsForm.addEventListener('input', e => {
+    totalOutput.value = happinessInput.valueAsNumber + fameInput.valueAsNumber + Math.floor(fortuneInput.valueAsNumber / 10000);
+});
+goalsForm.addEventListener('submit', e => {
+
+});
+
+/** @type {HTMLDialogElement} */
 const setupDialog = document.getElementById('setup');
 setupDialog.showModal();
 setupDialog.addEventListener('close', async e => {
@@ -170,19 +178,11 @@ setupDialog.addEventListener('close', async e => {
     const paydaySquare = document.getElementById('payday');
     const asideSection = document.getElementsByTagName('aside')[0];
 
-    /** @type {HTMLDialogElement} */
-    const goalsDialog = document.getElementById('goals');
-    /** @type {HTMLFormElement} */
-    const goalsForm = goalsDialog.querySelector('form');
-    goalsForm.addEventListener('submit', e => {
-        
-    });
-
     /** @type {Player[]} */
     const players = [];
     for (let i = 1; i <= playerCountInput.valueAsNumber; i++) {
         const player = new Player(paydaySquare, scorecardTemplate, asideSection, i);
-        await player.promptForGoals(goalsDialog);
+        await player.promptForGoals();
         player.updateScorecard();
         players.push(player);
     }
